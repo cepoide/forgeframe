@@ -1,0 +1,42 @@
+/* Footer.module.css */
+.footer {
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 4rem;
+}
+
+.text {
+    color: #a1a1aa;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.link {
+    color: #fff;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.link:hover {
+    opacity: 1;
+    color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,37 @@
+.section {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #121212;
+    /* Antracita */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Subtle separator removed for torn paper effect */
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 3rem;
+    color: #C5A059;
+    /* Oro Envejecido */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+}
+
+.text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: #D9D7D2;
+    /* Beige Suave */
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
