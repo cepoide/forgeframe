@@ -22,7 +22,7 @@ export default function CronusModel(props) {
         }
     }, [actions, scene]);
 
-    return <primitive object={scene} {...props} />;
+    return <primitive object={scene} dispose={null} {...props} />;
 }
 
 useGLTF.preload('/models/cronus.glb');

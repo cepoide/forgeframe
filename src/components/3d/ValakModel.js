@@ -22,7 +22,7 @@ export default function ValakModel(props) {
         });
     }, [actions, scene]);
 
-    return <primitive object={scene} {...props} />;
+    return <primitive object={scene} dispose={null} {...props} />;
 }
 
 useGLTF.preload('/models/valak.glb');

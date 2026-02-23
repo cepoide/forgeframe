@@ -31,13 +31,21 @@
   --header-height: 80px;
 
   /* Hero & Grid - Dark Mode Defaults */
-  --hero-bg-gradient: radial-gradient(circle at 50% 50%, #1a0505 0%, #000000 70%);
+  /* Hero & Grid - Dark Mode Defaults */
+  --hero-bg-gradient: linear-gradient(to bottom, transparent 30%, #000000 100%),
+    radial-gradient(ellipse 130% 90% at 50% 75%, #2a0808 0%, #000000 100%);
   --hero-vignette: radial-gradient(circle at center, transparent 40%, #000000 95%);
   --grid-hover-bg: rgba(139, 0, 0, 0.15);
   /* Red tint */
   --grid-icon-color: #8B0000;
   /* Dark Red */
   --grid-icon-shadow: rgba(139, 0, 0, 0.8);
+  --hero-edge-color: #000000;
+
+  --post-hero-bg: #1E1E1E;
+  /* Premium Dark Grey (Gris Grafito) - light enough to show black drop-shadows */
+  --scrollbar-thumb: #8B0000;
+  --scrollbar-thumb-hover: #A50000;
 }
 
 html,
@@ -67,12 +75,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--scrollbar-thumb-hover);
 }
 
 a {
@@ -104,7 +112,8 @@ a:hover {
   --glass-shadow: 0 8px 32px 0 var(--accent-shadow);
 
   /* Hero & Grid - Light Mode Overrides */
-  --hero-bg-gradient: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #E0E7FF 70%);
+  --hero-bg-gradient: linear-gradient(to bottom, transparent 30%, #E0E7FF 100%),
+    radial-gradient(ellipse 130% 90% at 50% 75%, #FFFFFF 0%, #E0E7FF 100%);
   /* Light Blueish White Gradient using accent-shadow at edges */
   --hero-vignette: radial-gradient(circle at center, transparent 50%, #E0E7FF 95%);
   /* #E0E7FF Vignette for smooth darker edge */
@@ -113,4 +122,10 @@ a:hover {
   --grid-icon-color: #3A47CC;
   /* Accent Blue */
   --grid-icon-shadow: rgba(58, 71, 204, 0.4);
+  --hero-edge-color: #E0E7FF;
+
+  --post-hero-bg: #FFFFFF;
+
+  --scrollbar-thumb: var(--primary-gold);
+  --scrollbar-thumb-hover: #B4952F;
 }

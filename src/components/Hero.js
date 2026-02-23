@@ -98,7 +98,7 @@ export default function Hero() {
                 </h1>
                 <div className={`${styles.description} ${inter.className}`}>
                     <p>
-                        No es solo una página web. Es la primera impresión de tu videojuego. Desarrollamos sitios que capturan la atmósfera, el estilo y la ambición de tu universo digital.
+                        It’s not just a website. It’s the first impression of your video game. We create sites that capture the atmosphere, style, and ambition of your digital universe.
                     </p>
                 </div>
             </div>

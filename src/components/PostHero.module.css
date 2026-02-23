@@ -1,37 +1,207 @@
 .section {
     width: 100%;
-    min-height: 100vh;
-    background-color: #121212;
-    /* Antracita */
+    /* min-height: 100vh; removed so it wraps to content */
+    background-color: var(--post-hero-bg);
+    color: var(--foreground);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    /* Subtle separator removed for torn paper effect */
+    padding: 150px 0;
+    /* Add top/bottom padding for spacing instead of forced height */
+}
+
+.topDivider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: visible;
+    clip-path: inset(0px -100px -100px -100px);
+    /* Cuts off any shadow bleeding above the top edge (Hero section) while letting it show below */
+    line-height: 0;
+    z-index: 10;
+    filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 1));
+    /* Darker, wider shadow to ensure high contrast against the Gris Grafito background */
+}
+
+.dividerImage {
+    width: 100%;
+    height: 75px;
+    background-color: var(--hero-edge-color);
+    -webkit-mask: url(/img/tp1.svg) no-repeat top center;
+    mask: url(/img/tp1.svg) no-repeat top center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+.bottomDivider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: visible;
+    clip-path: inset(-100px -100px 0px -100px);
+    /* Cuts off any shadow bleeding below the bottom edge */
+    line-height: 0;
+    z-index: 10;
+    filter: drop-shadow(0px -15px 15px rgba(0, 0, 0, 1));
+    /* Darker, wider shadow projecting UPWARDS against the background */
+}
+
+.bottomDividerImage {
+    width: 100%;
+    height: 75px;
+    background-color: var(--post-hero-bg);
+    /* Color of the section we are bleeding INTO (or same element color) if it's cutting into the next section. Wait, if it's the bottom of PostHero cutting into what's next... we'll use black/bg-color depending on the transition. Assuming it bleeds into the dark background below. We will use --hero-edge-color or whatever the next section background is. Let's use var(--hero-edge-color) assuming the next section is dark */
+    background-color: var(--hero-edge-color);
+    -webkit-mask: url(/img/tp2.svg) no-repeat bottom center;
+    mask: url(/img/tp2.svg) no-repeat bottom center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    transform: scaleY(-1);
+    /* Flips the SVG vertically so the torn edge points 'up' into the section */
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     width: 100%;
     padding: 0 2rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    /* Vertical spacing between top block and pillars */
+}
+
+/* --- Top Block --- */
+.topContent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+    /* Wide horizontal spacing */
+}
+
+.mainHeadline {
+    flex: 0 0 40%;
+    /* Approx 40% width to give right side more space for the pillars */
+}
+
+.rightColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    /* Space between description and pillars */
+}
+
+.mainDescription {
+    width: 100%;
 }
 
 .title {
     font-family: 'Uncial Antiqua', serif;
-    font-size: 3rem;
-    color: #C5A059;
-    /* Oro Envejecido */
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+    font-size: 3.5rem;
+    /* Increased size for impact */
+    line-height: 1.1;
+    color: #D4AF37;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    text-align: left;
 }
 
 .text {
     font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
-    color: #D9D7D2;
-    /* Beige Suave */
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 1.25rem;
+    color: var(--foreground);
     line-height: 1.6;
+    margin: 0;
+    text-align: left;
+    max-width: 100%;
+    /* Take full width of right column */
+}
+
+/* --- Bottom Block (Pillars) --- */
+.pillarsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Equal columns */
+    gap: 2rem;
+    border-top: 1px solid rgba(139, 115, 85, 0.2);
+    /* Subtle separator */
+    padding-top: 2rem;
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    /* Base state for scroll animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pillar:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.pillar:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.pillar:nth-child(3) {
+    transition-delay: 0.5s;
+}
+
+.pillar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pillarTitle {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.25rem;
+    color: #D4AF37;
+    margin: 0;
+}
+
+.pillarText {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--foreground);
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .container {
+        gap: 4rem;
+    }
+
+    .topContent {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .mainHeadline,
+    .rightColumn {
+        flex: auto;
+        width: 100%;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pillarsContainer {
+        grid-template-columns: 1fr;
+        /* Stack vertically on mobile */
+        gap: 2.5rem;
+    }
 }
