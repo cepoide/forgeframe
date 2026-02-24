@@ -42,8 +42,10 @@
   --grid-icon-shadow: rgba(139, 0, 0, 0.8);
   --hero-edge-color: #000000;
 
-  --post-hero-bg: #1E1E1E;
-  /* Premium Dark Grey (Gris Grafito) - light enough to show black drop-shadows */
+  --post-hero-bg: #141414;
+  /* Premium Dark Grey (Gris Grafito) - darkened to reduce burnt text effect */
+  --title-glow: 0 0 15px rgba(139, 115, 85, 0.15);
+  --divider-shadow: rgba(220, 220, 225, 0.15);
   --scrollbar-thumb: #8B0000;
   --scrollbar-thumb-hover: #A50000;
 }
@@ -125,6 +127,8 @@ a:hover {
   --hero-edge-color: #E0E7FF;
 
   --post-hero-bg: #FFFFFF;
+  --title-glow: 0 0 10px rgba(212, 175, 55, 0.3);
+  --divider-shadow: rgba(0, 0, 0, 1);
 
   --scrollbar-thumb: var(--primary-gold);
   --scrollbar-thumb-hover: #B4952F;

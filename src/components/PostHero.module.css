@@ -21,8 +21,8 @@
     /* Cuts off any shadow bleeding above the top edge (Hero section) while letting it show below */
     line-height: 0;
     z-index: 10;
-    filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 1));
-    /* Darker, wider shadow to ensure high contrast against the Gris Grafito background */
+    filter: drop-shadow(0px 15px 15px var(--divider-shadow));
+    /* Ash-colored / dynamic shadow for higher contrast against backgrounds */
 }
 
 .dividerImage {
@@ -45,8 +45,8 @@
     /* Cuts off any shadow bleeding below the bottom edge */
     line-height: 0;
     z-index: 10;
-    filter: drop-shadow(0px -15px 15px rgba(0, 0, 0, 1));
-    /* Darker, wider shadow projecting UPWARDS against the background */
+    filter: drop-shadow(0px -15px 15px var(--divider-shadow));
+    /* Dynamic upward shadow */
 }
 
 .bottomDividerImage {
@@ -104,9 +104,9 @@
     font-size: 3.5rem;
     /* Increased size for impact */
     line-height: 1.1;
-    color: #D4AF37;
+    color: var(--primary-gold);
     margin: 0;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    text-shadow: var(--title-glow);
     text-align: left;
 }
 
@@ -118,6 +118,7 @@
     margin: 0;
     text-align: left;
     max-width: 100%;
+    opacity: 0.85;
     /* Take full width of right column */
 }
 
@@ -163,7 +164,7 @@
 .pillarTitle {
     font-family: 'Uncial Antiqua', serif;
     font-size: 1.25rem;
-    color: #D4AF37;
+    color: var(--primary-gold);
     margin: 0;
 }
 
@@ -173,7 +174,7 @@
     color: var(--foreground);
     line-height: 1.5;
     margin: 0;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 /* --- Responsive --- */
